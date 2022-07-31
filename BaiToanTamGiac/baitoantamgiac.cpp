@@ -1,8 +1,8 @@
 #include<iostream>
 #include<math.h>
 using namespace std;
-double a=3,b=3,h=0,c=0;
-double S=0,p=0,alpha=0,beta=45,delta=0;
+double a=0,b=0,h=0,c=0;
+double S=0,p=0,alpha=0,beta=0,delta=0;
 int n =5;
 int k[8];//mang kich hoat
 int mnn[8][5]={
@@ -191,16 +191,16 @@ int main()
 {
 	
 	printf("--------------Bai toan tam giac-------------\n");
-//	printf("Nhap vao canh a: ");scanf("%d",&a);
-//	printf("Nhap vao canh b: ");scanf("%d",&b);
-//	printf("Nhap vao canh c: ");scanf("%d",&c);
-//	printf("Nhap vao S: ");scanf("%d",&S);
-//	printf("Nhap vao goc alpha: ");scanf("%d",&alpha);
-//	printf("Nhap vao goc beta: ");scanf("%d",&beta);
-//	printf("Nhap vao goc delta: ");scanf("%d",&delta);
+	printf("Nhap vao canh a: ");scanf("%lf",&a);
+	printf("Nhap vao canh b: ");scanf("%lf",&b);
+	printf("Nhap vao canh c: ");scanf("%lf",&c);
+	printf("Nhap vao S: ");scanf("%lf",&S);
+	printf("Nhap vao goc alpha: ");scanf("%lf",&alpha);
+	printf("Nhap vao goc beta: ");scanf("%lf",&beta);
+	printf("Nhap vao goc delta: ");scanf("%lf",&delta);
 	init_mkh();
 	init(alpha,beta,delta,a,b,c,S);
-	in_mkh();
+
 	//kich hoat cac gia tri da co
 	for(int i=0;i<8;i++)
 	{
@@ -209,18 +209,15 @@ int main()
 			kichhoat(i);
 		}
 	}
-	in_mnn();
 	while(h==0)
 	{
 		int congthuc=kiemtra();
-		in_mnn();
-		printf("\n\n");
 		switch(congthuc)
 		{
 			case 0:{
-				printf("Chon cong thuc 1:\n");
+
 				double kq=congthuc1(a,b,alpha,beta);
-				printf("Ket qua duoc tinh la %f\n",kq);
+		
 				for(int i=0;i<8;i++)
 				{
 					if(mnn[i][congthuc]==-1){
@@ -228,25 +225,25 @@ int main()
 						switch (i){
 							case 3:{
 								//a
-								printf("gan vao a\n");
+	
 								a=kq;
 								break;
 							}
 							case 4:{
 								//b
-								printf("gan vao b\n");
+					
 								b=kq;
 								break;
 							}
 							case 0:{
 								//alpha
-								printf("gan vao alpha\n");
+				
 								alpha=kq;
 								break;
 							}
 							case 1:{
 								//beta
-								printf("gan vao beta\n");
+	
 								beta=kq;
 								break;
 							}
@@ -256,7 +253,7 @@ int main()
 				break;
 			}
 			case 1:{
-				printf("Chon cong thuc 2:\n");
+	
 				double kq=congthuc2(b,c,beta,delta);
 				for(int i=0;i<8;i++)
 				{
@@ -265,25 +262,24 @@ int main()
 						switch (i){
 							case 5:{
 								//c
-								printf("gan vao c\n");
+
 								c=kq;
 								break;
 							}
 							case 4:{
 								//b
-								printf("gan vao b\n");
+
 								b=kq;
 								break;
 							}
 							case 2:{
 								//delta
-								printf("gan vao delta\n");
+
 								delta=kq;
 								break;
 							}
 							case 1:{
 								//beta
-								printf("gan vao beta\n");
 								beta=kq;
 								break;
 							}
@@ -293,7 +289,7 @@ int main()
 				break;
 			}
 			case 2:{
-				printf("Chon cong thuc 3\n");
+	
 				double kq=congthuc3(a,b,c);
 				for(int i=0;i<8;i++)
 				{
@@ -302,25 +298,25 @@ int main()
 						switch (i){
 							case 6:{
 								//S
-								printf("gan vao S\n");
+						
 								S=kq;
 								break;
 							}
 							case 5:{
 								//a
-								printf("gan vao a\n");
+				
 								a=kq;
 								break;
 							}
 							case 4:{
 								//b
-								printf("gan vao b\n");
+			
 								b=kq;
 								break;
 							}
 							case 3:{
 								//c
-								printf("gan vao c\n");
+			
 								c=kq;
 								break;
 							}
@@ -331,7 +327,7 @@ int main()
 				break;
 			}
 			case 3:{
-				printf("chon cong thucs 4\n");
+	
 				double kq=congthuc4(alpha,beta,delta);
 				for(int i=0;i<8;i++)
 				{
@@ -341,19 +337,19 @@ int main()
 						switch (i){
 							case 0:{
 								//alpha
-								printf("gan vao alpha\n");
+
 								alpha=kq;
 								break;
 							}
 							case 1:{
 								//beta
-								printf("gan vao beta\n");
+
 								beta=kq;
 								break;
 							}
 							case 2:{
 								//delta
-								printf("gan vao delta\n");
+	
 								delta=kq;
 								break;
 							}
@@ -365,7 +361,7 @@ int main()
 				break;
 			}
 			case 4:{
-				printf("chon cong thuc 5\n");
+
 				double kq=congthuc5(S,h,c);
 				for(int i=0;i<8;i++)
 				{
@@ -374,19 +370,19 @@ int main()
 						switch (i){
 							case 6:{
 								//S
-								printf("gan vao S\n");
+				
 								S=kq;
 								break;
 							}
 							case 7:{
 								//h
-								printf("gan vao h\n");
+		
 								h=kq;
 								break;
 							}
 							case 5:{
 								//c
-								printf("gan vao c\n");
+
 								c=kq;
 								break;
 							}
@@ -398,6 +394,7 @@ int main()
 				break;
 			}
 		}
-		printf("h duoc tinh la %f\n",h);	
+		
 	}
+		printf("h duoc tinh la %f\n",h);
 }
